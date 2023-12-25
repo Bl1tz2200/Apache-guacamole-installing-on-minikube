@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-guacamole-service
+spec:
+  clusterIP: None
+  ports:
+  - port: 3306
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: mysql-guacamole-service
+subsets:
+  - addresses:
+        - ip: PAST HERE YOUR DB IP ADDRESS
+    ports:
+      - port: 3306
+        name: mysql-guacamole-service

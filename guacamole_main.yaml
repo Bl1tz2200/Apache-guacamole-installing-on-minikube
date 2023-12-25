@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-guacamole-main
+  labels:
+    app: apache-guacamole-main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache-guacamole-main
+  template:
+    metadata:
+      labels:
+        app: apache-guacamole-main
+    spec:
+      containers:
+      - name: apache-guacamole
+        image: guacamole/guacamole
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MYSQL_DATABASE
+          value: guacamole_db
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-secret
+              key: MYSQL_USER
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: guacamole-secret
+              key: MYSQL_PASSWORD
+        - name: MYSQL_HOSTNAME
+          value: mysql-guacamole-service
+        - name: GUACD_HOSTNAME
+          value: guacamole-guacd-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apache-guacamole-main-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: apache-guacamole-main
+  ports:
+  - name: site
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
