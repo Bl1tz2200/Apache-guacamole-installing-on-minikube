@@ -95,6 +95,7 @@ $ minikube service apache-guacamole-main-service
 
 And you will get the link to your site. If you add /guacamole (https://YOUR_IP_ADDRESS_WITH_PORT_SHOWED_IN_TERMINAL/guacamole) you will get in site.<br />
 Basicaly Apache Guacamole has guacadmin on username and login.<br />
+If you have already used kubernetes I recommend to add special namespace for all attached files. By this way it won't disturb your other k8s projects<br />
 Now you can start working
 
 
