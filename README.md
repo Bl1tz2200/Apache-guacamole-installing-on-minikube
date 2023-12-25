@@ -54,7 +54,7 @@ We should create user guacamole_user with password guacpassword and privileges t
 mysql> CREATE USER 'guacamole_user' IDENTIFIED BY 'guacpassword';<br />
 mysql> GRANT ALL ON guacamole_db.* TO 'guacamole_user';
 
-(you can change user and password, but don`t forget to change it in your guacamole yaml configuration)
+(you can change user and password, but don`t forget to change it in your guacamole_secret.yaml configuration (remember: values in secret uses Base64 coding, you should code your user and login in to their Base64 variation)
 
 After that we use:
 
