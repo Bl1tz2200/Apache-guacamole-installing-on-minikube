@@ -58,7 +58,7 @@ mysql> GRANT ALL ON guacamole_db.* TO 'guacamole_user';
 
 After that we use:
 
-mysql> SYSTEM /your/path/to/init.sql;
+mysql> source /your/path/to/init.sql;
 
 Don't forget to change ip address for your mysql server from localhost to another in /etc/mysql/mysql.conf.d/mysqld.cnf:
 
