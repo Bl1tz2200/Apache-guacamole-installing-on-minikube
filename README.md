@@ -56,9 +56,11 @@ mysql> GRANT ALL ON guacamole_db.* TO 'guacamole_user';
 
 (you can change user and password, but don`t forget to change it in your guacamole_secret.yaml configuration (remember: values in secret uses Base64 coding, you should code your user and login in to their Base64 variation)
 
-After that we use:
+After that we use already installed initdb:
 
-mysql> source /your/path/to/init.sql;
+mysql> USE guacamole_db;<br />
+mysql> source /your/path/to/initdb.sql;<br />
+mysql> exit
 
 Don't forget to change ip address for your mysql server from localhost to another in /etc/mysql/mysql.conf.d/mysqld.cnf:
 
