@@ -6,7 +6,7 @@ So let's get start
 We need to install minikube and his controlling utilites: kubectl, kubeadm, kubelet and docker.<br />
 Also we need to install mysql-server by:
 
-$ sudo apt-get install -y mysql-server
+$ sudo apt-get install -y mysql
 
 (You can use PostreSql too, but i will use MySql, that's why you will need to change many settings in yaml files)
 
